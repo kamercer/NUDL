@@ -1,0 +1,7 @@
+{
+    "name": "NUDL",
+    "main": "server.js",
+    "dependencies": {
+	"express" : "latest"
+    }
+}
