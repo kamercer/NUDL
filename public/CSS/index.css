@@ -10,10 +10,6 @@ body{
     width: 30em;
 }
 
-#centerImage:hover{
-    transform:scale(.95)
-}
-
 #counter{
     display: block;
     margin: 0 auto;

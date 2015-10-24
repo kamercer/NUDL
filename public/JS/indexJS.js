@@ -10,6 +10,17 @@ function preload(){
 }
 
 function init(){
+    $('#centerImage').hover(function(){
+	if (startFlag == false){
+	    console.log('ran');
+	    $("#centerImage").css({'transform':'scale(.95)'});
+	}
+    }, function(){
+	if (startFlag == false){
+	    $("#centerImage").css({'transform':'scale(1)'});
+	}
+    });
+
     $('#centerImage').click(function(){
 	if (startFlag == false){
 	    startFlag = true;

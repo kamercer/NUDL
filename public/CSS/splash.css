@@ -10,15 +10,14 @@ body{
 }
 
 #enterButton{
-    margin-top: 35%;
-    margin-left: 45%;
+    margin-top: 15em;
+    margin-left: 43%;
 
     background-color: transparent;
     -moz-border-radius:28px;
     -webkit-border-radius:28px;
     border-radius:28px;
     border:2px solid #774627;
-    display:inline-block;
     cursor:pointer;
     color: #774627;
     font-family:Georgia;
