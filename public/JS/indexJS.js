@@ -10,9 +10,9 @@ function preload(){
 }
 
 function init(){
+    //image hover
     $('#centerImage').hover(function(){
 	if (startFlag == false){
-	    console.log('ran');
 	    $("#centerImage").css({'transform':'scale(.95)'});
 	}
     }, function(){
@@ -21,22 +21,26 @@ function init(){
 	}
     });
 
+    //image click to start and stop
     $('#centerImage').click(function(){
 	if (startFlag == false){
 	    startFlag = true;
-
 	    $("#centerImage").css({'transform':'scale(1.5)'});
 	    runTimer();
 	}else{
 	    startFlag = false;
-	    recordStart = false;
+	    if (recordStart == true){
+		$("#transcribe").css('display', 'block');
+		recordStart = false;
+	    }
+	    
 	    $("#centerImage").css({'transform':'scale(1)'});
 	    counter = 0;
 	    $("#counter").text("");
-	    console.log('stopped');
 	}
     });
 
+    //button click to submit
     $("#transcrible").click(function(){
 	ajaxCall();
     });

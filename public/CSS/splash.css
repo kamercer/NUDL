@@ -3,12 +3,6 @@ body{
     background-size: cover;
 }
 
-#logo{
-    width: 30%;
-    margin: 0 auto;
-    margin-top: 15em;
-}
-
 #enterButton{
     margin-top: 15em;
     margin-left: 43%;
@@ -23,7 +17,7 @@ body{
     font-family:Georgia;
     font-size:45px;
     padding:16px 31px;
-    text-decoration:none;
+    text-decoration: none;
 }
 
 #enterButton:hover {

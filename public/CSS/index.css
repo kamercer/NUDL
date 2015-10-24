@@ -3,10 +3,15 @@ body{
     background-size: cover;
 }
 
+#title{
+    text-align: center;
+    font-size: 50px;
+}
+
 #centerImage{
     display: block;
     margin: 0 auto;
-    margin-top: 10%;
+    margin-top: 5%;
     width: 30em;
 }
 
@@ -19,6 +24,23 @@ body{
 }
 
 #transcribe{
-    display: block;
+    display: none;
     margin: 0 auto;
+   
+    background-color: transparent;
+    -moz-border-radius:28px;
+    -webkit-border-radius:28px;
+    border-radius:28px;
+    border:2px solid #774627;
+    cursor:pointer;
+    color: #774627;
+    font-family:Georgia;
+    font-size:45px;
+    padding:16px 31px;
+    text-decoration: none;
+}
+
+#transcribe:hover{
+    background: #f2dfb5;
+    text-decoration: none;
 }
