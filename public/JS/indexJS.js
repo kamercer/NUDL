@@ -66,5 +66,8 @@ function returnArray(){
 }
 
 function ajax(){
-    $.post('/receiveFrequencies',{test: "1"});
+    var data = new Object;
+    data.frequencies = noteArray;
+
+    $.post('/receiveFrequencies',{frequencies: noteArray});
 }

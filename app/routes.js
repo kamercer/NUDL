@@ -1,6 +1,6 @@
-// app/routes.js
+//app/routes.js
 
-//var Nerd = require('./models/nerd');
+var model = require('./models/model');
 
 module.exports = function(app){
 
@@ -13,8 +13,10 @@ module.exports = function(app){
     });
 
     app.post('/receiveFrequencies', function(req, res){
-	console.log('this ran');
-	console.log(req.body);
+	console.log('Frequencies received: ' + req.body.frequencies + '\n');
+
+	model.convertHzToNotes(req.body.frequencies);
+
 	res.end();
     });
 }
