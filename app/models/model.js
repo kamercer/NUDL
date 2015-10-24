@@ -7,7 +7,7 @@ module.exports = {
 
 	var frequencies = data.frequencies;
 	
-	//more need to be added
+	//need to be checked
 	for (i = 0; i < frequencies.length; i++){
 	    switch(true){
 	    case frequencies[i] <= 84.856:
@@ -70,8 +70,77 @@ module.exports = {
 	    case frequencies[i] <= 254.28365:
 		noteArray.push(19);
 		break;
+	    case frequencies[i] <= 269.4041:
+		noteArray.push(20);
+		break;
+	    case frequencies[i] <= 285.4237:
+		noteArray.push(21);
+		break;
+	    case frequencies[i] <= 302.3959:
+		noteArray.push(22);
+		break;
+	    case frequencies[i] <= 320.3773:
+		noteArray.push(23);
+		break;
+	    case frequencies[i] <= 339.4279:
+		noteArray.push(24);
+		break;
+	    case frequencies[i] <= 359.6113:
+		noteArray.push(25);
+		break;
+	    case frequencies[i] <= 380.9949:
+		noteArray.push(26);
+		break;
+	    case frequencies[i] <= 403.65005:
+		noteArray.push(27);
+		break;
+	    case frequencies[i] <= 427.65235:
+		noteArray.push(28);
+		break;
+	    case frequencies[i] <= 453.0819:
+		noteArray.push(29);
+		break;
+	    case frequencies[i] <= 480.02355:
+		noteArray.push(30);
+		break;
+	    case frequencies[i] <= 508.5672:
+		noteArray.push(31);
+		break;
+	    case frequencies[i] <= 538.8082:
+		noteArray.push(32);
+		break;
+	    case frequencies[i] <= 570.8474:
+		noteArray.push(33);
+		break;
+	    case frequencies[i] <= 604.79175:
+		noteArray.push(34);
+		break;
+	    case frequencies[i] <= 640.75455:
+		noteArray.push(35);
+		break;
+	    case frequencies[i] <= 678.8558:
+		noteArray.push(36);
+		break;
+	    case frequencies[i] <= 719.22265:
+		noteArray.push(37);
+		break;
+	    case frequencies[i] <= 761.9903:
+		noteArray.push(38);
+		break;
+	    case frequencies[i] <= 807.0015:
+		noteArray.push(39);
+		break;
+	    case frequencies[i] <= 855.3047:
+		noteArray.push(40);
+		break;
+	    case frequencies[i] <= 906.16375:
+		noteArray.push(41);
+		break;
+	    case frequencies[i] <= 960.04705:
+		noteArray.push(42);
+		break;
 	    default:
-		noteArray.push(-1);
+		noteArray.push(42);
 		break;
 	    }
 	}
