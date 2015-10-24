@@ -19,7 +19,7 @@ module.exports = function(app){
 
     app.post('/loadSheet', function(req, res){
 	//var data = JSON.parse(req.body);
-	console.log('Frequencies received: ' + req.json_body + '\n');
+	console.log('Frequencies received: ' + req.body.json + '\n');
 
 	//var notes = model.convertHzToNotes(req.body.frequencies);
 
@@ -27,6 +27,6 @@ module.exports = function(app){
 	    headers : {'Custom' : 'test' }
 	}
 
-	res.sendfile('./public/views/notes.html');
+	res.render('notes', {jsonData: 'alert(' + '5' + ');'});
     });
 }

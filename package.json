@@ -3,6 +3,7 @@
     "main": "server.js",
     "dependencies": {
 	"express"     : "latest",
-	"body-parser" : "latest"
+	"body-parser" : "latest",
+	"ejs"         : "latest"
     }
 }

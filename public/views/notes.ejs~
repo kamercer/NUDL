@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>	 	   
+  <head>		
+    <meta charset="UTF-8">
+    <title>NUDL</title>		
+  </head>			
+  <body>			
+  
+  </body>
+
+  <script>
+	<%=jsonData%>
+  </script>
+</html>

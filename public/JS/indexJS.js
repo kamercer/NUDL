@@ -75,7 +75,10 @@ function ajax(){
 }
 
 function temp(){
-    $('<input type="hidden" name="json"/>').val({Custom: 'temp'}).appendTo('#temp');
+
+    var data = JSON.stringify({"Custom": "temp"});
+    
+    $('<input type="hidden" name="json"/>').val(data).appendTo('#temp');
 
 $('#temp').submit();
 }
