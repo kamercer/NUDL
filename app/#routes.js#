@@ -8,16 +8,9 @@ module.exports = function(app){
 	res.sendfile('./public/views/index.html');
     });
 
-    app.get('/notes', function(req, res){
+    app.get('/indexJS.js', function(req, re
 
-	var options = {
-	    headers : {'Custom' : 'test' }
-	}
-
-	res.sendfile('./public/views/notes.html', options);
-    });
-
-    app.post('/loadSheet', function(req, res){
+    app.post('/receiveFrequencies', function(req, res){
 	console.log('Frequencies received: ' + req.body.frequencies + '\n');
 
 	model.convertHzToNotes(req.body.frequencies);

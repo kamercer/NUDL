@@ -69,5 +69,5 @@ function ajax(){
     var data = new Object;
     data.frequencies = noteArray;
 
-    $.post('/receiveFrequencies',{frequencies: noteArray});
+    $.post('/loadSheet',{frequencies: noteArray});
 }
