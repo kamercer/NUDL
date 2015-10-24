@@ -1,6 +1,52 @@
+var startFlag = false;
+var counter = 0;
+var recordStart = false;
+
 function preload(){
     sound = loadSound('../JS/test2.wav');
     console.log('sound loaded');
+
+    init();
+}
+
+function init(){
+    $('#centerImage').click(function(){
+	if (startFlag == false){
+	    startFlag = true;
+
+	    $("#centerImage").css({'transform':'scale(1.5)'});
+	    runTimer();
+	}else{
+	    startFlag = false;
+	    recordStart = false;
+	    $("#centerImage").css({'transform':'scale(1)'});
+	    counter = 0;
+	    $("#counter").text("");
+	    console.log('stopped');
+	}
+    });
+
+    $("#transcrible").click(function(){
+	ajaxCall();
+    });
+}
+
+function runTimer(){
+    if (counter < 8 && startFlag == true){
+	if (counter == 6){
+	    $("#counter").text("Ready!");
+	}else if (counter == 7){
+	    $("#counter").text("Go!");
+	}else{
+	    $("#counter").text(counter%4 + 1);
+	}
+	counter = counter + 1;
+	setTimeout(runTimer, 500);
+    }else{
+	if (startFlag == true){
+	    recordStart = true;
+	}
+    }
 }
 
 var mic, fft;
@@ -8,13 +54,10 @@ var noteArray = new Array();
 var hzFlag = false;
 
 function setup() {
-   //createCanvas(710,400);
-   //noFill();
-
-   //sound.loop();
-   fft = new p5.FFT(0, 8192);
-   fft.setInput(sound);
-   sound.play();
+    mic = new p5.AudioIn();
+    fft = new p5.FFT(0, 8192);
+    fft.setInput(mic);
+    mic.start();
 }
 
 function high(){
@@ -48,17 +91,9 @@ function high(){
 }
 
 function draw() {
-   //background(200);
-
-   //var spectrum = fft.analyze();
-
-   //beginShape();
-   //for (i = 0; i<spectrum.length; i++) {
-    //vertex(i, map(spectrum[i], 0, 255, height, 0) );
-   //}
-   //endShape();
-
-    high();
+    if (recordStart == true){
+	high();
+    }
 }
 
 function returnArray(){
@@ -66,7 +101,6 @@ function returnArray(){
 }
 
 function ajaxCall(){
-
     var data = JSON.stringify({"frequencies": noteArray});
     
     $('<input type="hidden" name="json"/>').val(data).appendTo('#temp');

@@ -6,11 +6,23 @@ body{
 #centerImage{
     display: block;
     margin: 0 auto;
-
     margin-top: 10%;
     width: 30em;
 }
 
 #centerImage:hover{
-    transform:scale(1.5)
+    transform:scale(.95)
+}
+
+#counter{
+    display: block;
+    margin: 0 auto;
+    margin-top: 5%;
+    text-align: center;
+    font-size: 30px;
+}
+
+#transcribe{
+    display: block;
+    margin: 0 auto;
 }
