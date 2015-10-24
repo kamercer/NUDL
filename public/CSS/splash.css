@@ -1,0 +1,41 @@
+body{
+    background: url('../assets/Wood-Background.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+#logo{
+    width: 30%;
+    margin: 0 auto;
+    margin-top: 15em;
+}
+
+#buttonWrapper{
+    width: auto;
+    height: auto;
+
+    margin: 0 auto;
+    margin-top: 40em;
+}
+
+#enterButton{
+    margin-top: 35%;
+    margin-left: 45%;
+
+    background-color: transparent;
+    -moz-border-radius:28px;
+    -webkit-border-radius:28px;
+    border-radius:28px;
+    border:2px solid #774627;
+    display:inline-block;
+    cursor:pointer;
+    color: #774627;
+    font-family:Georgia;
+    font-size:30px;
+    padding:16px 31px;
+    text-decoration:none;
+}
+
+#enterButton:hover {
+    background: #f2dfb5;
+    text-decoration: none;
+}

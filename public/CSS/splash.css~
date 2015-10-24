@@ -1,0 +1,10 @@
+#logo{
+    width: 30%;
+    margin: 0 auto;
+    margin-top: 15em;
+}
+
+#button{
+    width: 20%;
+    margin: 0 auto;
+}
