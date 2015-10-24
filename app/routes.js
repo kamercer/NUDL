@@ -8,17 +8,6 @@ module.exports = function(app){
 	res.sendfile('./public/views/index.html');
     });
 
-    /*
-    app.get('/notes', function(req, res){
-
-	var options = {
-	    headers : {'Custom' : 'test' }
-	}
-
-	res.sendfile('./public/views/notes.html', options);
-    });
-    */
-
     app.post('/loadSheet', function(req, res){
 	console.log('Frequencies received: ' + req.body.json + '\n');
 
