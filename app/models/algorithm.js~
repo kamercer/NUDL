@@ -1,0 +1,7 @@
+var d = require('../JS/p5-release/addons/p5.sound.js');
+
+module.exports = {
+    preload: function(){
+	return true;
+    }
+}

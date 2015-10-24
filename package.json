@@ -2,6 +2,7 @@
     "name": "NUDL",
     "main": "server.js",
     "dependencies": {
-	"express" : "latest"
+	"express" : "latest",
+	"p5"      : "latest"
     }
 }
