@@ -24,7 +24,15 @@ module.exports = function(app){
 
     //frontend routes
     //route to handle all angular requests
-    app.get('*', function(req, res){
+    app.get('/', function(req, res){
 	res.sendfile('./public/views/index.html');
+    });
+
+    app.get('/indexJS.js', function(req, res){
+	res.sendfile('./public/JS/indexJS.js');
+    });
+
+    app.post('/receiveFrequencies', function(req, res){
+	console.log('this ran');
     });
 }
