@@ -6,12 +6,13 @@ var app = express();
 //port
 var port = 3000;
 
-require('./app/routes.js')(app)
-
-app.use(express.static('public'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+
+app.use(express.static('public'));
+
+require('./app/routes.js')(app)
 
 //start app
 app.listen(port);

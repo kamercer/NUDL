@@ -66,5 +66,5 @@ function returnArray(){
 }
 
 function ajax(){
-    
+    $.post('/receiveFrequencies',{test: "1"});
 }
