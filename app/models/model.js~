@@ -1,9 +1,0 @@
-module.exports = {
-
-    convertHzToNotes : function(frequencies){
-	for (i = 0; i < frequencies.length; i++){
-	    switch(frequences[i]){
-		
-	    }
-    }
-}

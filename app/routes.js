@@ -18,10 +18,15 @@ module.exports = function(app){
     });
 
     app.post('/loadSheet', function(req, res){
-	console.log('Frequencies received: ' + req.body.frequencies + '\n');
+	//var data = JSON.parse(req.body);
+	console.log('Frequencies received: ' + req.json_body + '\n');
 
-	model.convertHzToNotes(req.body.frequencies);
+	//var notes = model.convertHzToNotes(req.body.frequencies);
 
-	res.end();
+	var options = {
+	    headers : {'Custom' : 'test' }
+	}
+
+	res.sendfile('./public/views/notes.html');
     });
 }
