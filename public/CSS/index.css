@@ -1,0 +1,16 @@
+body{
+    background: url('/assets/Wood-Background.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+#centerImage{
+    display: block;
+    margin: 0 auto;
+
+    margin-top: 10%;
+    width: 30em;
+}
+
+#centerImage:hover{
+    transform:scale(1.5)
+}

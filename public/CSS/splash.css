@@ -1,5 +1,5 @@
 body{
-    background: url('../assets/Wood-Background.png') no-repeat center center fixed;
+    background: url('/assets/Wood-Background-Logo.png') no-repeat center center fixed;
     background-size: cover;
 }
 
@@ -7,14 +7,6 @@ body{
     width: 30%;
     margin: 0 auto;
     margin-top: 15em;
-}
-
-#buttonWrapper{
-    width: auto;
-    height: auto;
-
-    margin: 0 auto;
-    margin-top: 40em;
 }
 
 #enterButton{
@@ -30,7 +22,7 @@ body{
     cursor:pointer;
     color: #774627;
     font-family:Georgia;
-    font-size:30px;
+    font-size:45px;
     padding:16px 31px;
     text-decoration:none;
 }

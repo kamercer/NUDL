@@ -8,8 +8,8 @@ var noteArray = new Array();
 var hzFlag = false;
 
 function setup() {
-   createCanvas(710,400);
-   noFill();
+   //createCanvas(710,400);
+   //noFill();
 
    //sound.loop();
    fft = new p5.FFT(0, 8192);
@@ -48,15 +48,15 @@ function high(){
 }
 
 function draw() {
-   background(200);
+   //background(200);
 
-   var spectrum = fft.analyze();
+   //var spectrum = fft.analyze();
 
-   beginShape();
-   for (i = 0; i<spectrum.length; i++) {
-    vertex(i, map(spectrum[i], 0, 255, height, 0) );
-   }
-   endShape();
+   //beginShape();
+   //for (i = 0; i<spectrum.length; i++) {
+    //vertex(i, map(spectrum[i], 0, 255, height, 0) );
+   //}
+   //endShape();
 
     high();
 }
@@ -65,16 +65,7 @@ function returnArray(){
     console.log(noteArray.toString());
 }
 
-function ajax(){
-    var data = new Object;
-    data.frequencies = noteArray;
-
-    $.post('/loadSheet',{frequencies: noteArray}, function(data, status, request){
-	alert('d');
-    });
-}
-
-function temp(){
+function ajaxCall(){
 
     var data = JSON.stringify({"frequencies": noteArray});
     
