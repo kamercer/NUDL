@@ -1,8 +1,11 @@
 module.exports = {
     
-    convertHzToNotes : function(frequencies){
+    convertHzToNotes : function(notes){
 	
 	var noteArray = new Array();
+	var data = JSON.parse(notes);
+
+	var frequencies = data.frequencies;
 	
 	//more need to be added
 	for (i = 0; i < frequencies.length; i++){
@@ -67,7 +70,12 @@ module.exports = {
 	    case frequencies[i] <= 254.28365:
 		noteArray.push(19);
 		break;
+	    default:
+		noteArray.push(-1);
+		break;
 	    }
 	}
+	
+	return noteArray;
     }
 }

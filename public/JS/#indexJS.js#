@@ -67,18 +67,13 @@ function returnArray(){
 
 function ajax(){
     var data = new Object;
-    data.frequencies = noteArray;
-
-    $.post('/loadSheet',{frequencies: noteArray}, function(data, status, request){
-	alert('d');
-    });
-}
+    
 
 function temp(){
 
-    var data = JSON.stringify({"frequencies": noteArray});
+    var data = JSON.stringify({"Custom": "temp"});
     
     $('<input type="hidden" name="json"/>').val(data).appendTo('#temp');
 
-    $('#temp').submit();
+$('#temp').submit();
 }

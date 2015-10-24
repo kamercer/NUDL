@@ -8,6 +8,7 @@ module.exports = function(app){
 	res.sendfile('./public/views/index.html');
     });
 
+    /*
     app.get('/notes', function(req, res){
 
 	var options = {
@@ -16,17 +17,13 @@ module.exports = function(app){
 
 	res.sendfile('./public/views/notes.html', options);
     });
+    */
 
     app.post('/loadSheet', function(req, res){
-	//var data = JSON.parse(req.body);
 	console.log('Frequencies received: ' + req.body.json + '\n');
 
-	//var notes = model.convertHzToNotes(req.body.frequencies);
+	var notes = model.convertHzToNotes(req.body.json);
 
-	var options = {
-	    headers : {'Custom' : 'test' }
-	}
-
-	res.render('notes', {jsonData: 'alert(' + '5' + ');'});
+	res.render('notes', {jsonData: 'alert(' + notes + ');'});
     });
 }
