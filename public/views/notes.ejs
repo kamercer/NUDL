@@ -3,16 +3,31 @@
   <head>		
     <meta charset="UTF-8">
     <title>NUDL</title>		
-     <SCRIPT LANGUAGE="JAVASCRIPT" TYPE="TEXT/JAVASCRIPT" SRC="/JS/p5.js"></SCRIPT>
-    <script  language="javascript" type="text/javascript" src="/JS/sketch.js"/>
+    <SCRIPT TYPE="TEXT/JAVASCRIPT" SRC="/JS/p5.js"></script>
+    <script type="text/javascript" src="/JS/addons/p5.sound.js"></script>
+    <script type="text/javascript" src="/JS/sketch.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+    <link rel="stylesheet" type="text/css" href="/CSS/notes.css">
   </head>			
-
-  <body>			
   
+  <body>			
+    <div id='bodyDiv'></div>
+    
+    <table id="buttonTable" align="center">
+      <tr>
+	<td>
+	  <img id="back_unpressed" src="/assets/back_unpressed.png"/>
+	</td>
+	<td>
+	  <img id="pause_unpressed" src="/assets/pause_unpressed.png"/>
+	</td>
+	<td>
+	   <img id="play_unpressed" src="/assets/play_unpressed.png"/>
+	</td>
+	<td>
+	  <img id="loop_unpressed" src="/assets/loop_unpressed.png"/>
+	</td>
+      </tr>
+    </table>
   </body>
-
-  <script>
-    var data = {"a": "3", "b" : "2"}    
-    <%=jsonData%>
-  </script>
 </html>

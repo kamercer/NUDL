@@ -15,7 +15,7 @@ module.exports = function(app){
     app.post('/loadSheet', function(req, res){
 	console.log('Frequencies received: ' + req.body.json + '\n');
 
-	var notes = model.convertHzToNotes(req.body.json);
+	var noteArray = model.convertHzToNotes(req.body.json);
 
 	res.render('notes', {jsonData: ''});
     });

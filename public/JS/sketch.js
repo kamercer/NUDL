@@ -1,15 +1,33 @@
 var lineCounter = -1;
 
+var audio = new Array(50);
+
+function preload(){
+    audio[0] = loadSound("/assets/sound/E2.wav");
+    audio[1] = loadSound("/assets/sound/F2.wav"); 
+}
+
 function setup() {
-    var height = window.screen.availHeight;
-    var width = window.screen.availWidth;
+    audio[0].play();
     
-    createCanvas(width, height);
+   var height = window.screen.availHeight;
+   var width = window.screen.availWidth;
+    
+    var MyCanvas = createCanvas(width, height-200);
+    MyCanvas.parent('bodyDiv');
     background(255);
     noSmooth();    
 
     graphLines();
     noteLoop();
+    
+    init();
+}
+
+function init(){
+    $("#play_unpressed").click(function(){
+	playNote(0);
+    });
 }
 
 function note(a,c)
@@ -293,3 +311,102 @@ function graphLines(){
     line(140, a+75, wide, a+75);
     line(140, a+100, wide, a+100);
 }
+
+function playNote(a)
+{    
+    audio[a].setVolume(1);
+    audio[a].play();
+/*
+    if(a==0)
+	//audio[0] = loadSound("/assets/sound/E2.wav");
+	audio[0].play();
+    else if(a==1)
+	audio = loadSound("sound/F2.wav"); 
+    else if(a==2)
+	audio = loadSound("sound/F#2.wav");
+    else if(a==3)
+	audio = loadSound("sound/G2.wav");
+	else if(a==4)
+	    audio = loadSound("sound/G#2.wav");
+	else if(a==5)
+	    audio = loadSound("sound/A2.wav");
+	else if(a==6)
+	    audio = loadSound("sound/A#2.wav");  
+	else if(a==7)
+	    audio = loadSound("sound/B2.wav");
+	else if(a==8)
+	    audio = loadSound("sound/C2.wav");
+	else if(a==9)
+	    audio = loadSound("sound/C#2.wav");
+	else if(a==10)
+	    audio = loadSound("sound/D2.wav");
+	else if(a==11)
+	    audio = loadSound("sound/D#2.wav");
+	else if(a==12)
+	    audio = loadSound("sound/E3.wav");
+	else if(a==13)
+	    audio = loadSound("sound/F3.wav");
+	else if(a==14)
+	    audio = loadSound("sound/F#3.wav");
+	else if(a==15)
+	    audio = loadSound("sound/G3.wav");
+	else if(a==16)
+	    audio = loadSound("sound/G#3.wav");
+    else if(a==17)
+	audio = loadSound("sound/A3.wav");
+    else if(a==18)
+	audio = loadSound("sound/A#3.wav");
+    else if(a==19)
+	audio = loadSound("sound/B3.wav");
+    else if(a==20)
+	audio = loadSound("sound/C3.wav");
+    else if(a==21)
+	audio = loadSound("sound/C#3.wav");
+    else if(a==22)
+	audio = loadSound("sound/D3.wav");
+    else if(a==23)
+	audio = loadSound("sound/D#3.wav");
+    else if(a==24)
+	audio = loadSound("sound/E4.wav");
+    else if(a==25)
+	audio = loadSound("sound/F4.wav");
+    else if(a==26)
+	audio = loadSound("sound/F#4.wav");
+    else if(a==27)
+	audio = loadSound("sound/G4.wav");
+    else if(a==28)
+	audio = loadSound("sound/G#4.wav");
+    else if(a==29)
+	audio = loadSound("sound/A4.wav");
+    else if(a==30)
+	audio = loadSound("sound/A#4.wav");
+    else if(a==31)
+	audio = loadSound("sound/B4.wav");
+    else if(a==32)
+	audio = loadSound("sound/C4.wav");
+    else if(a==33)
+	audio = loadSound("sound/C#4.wav");
+    else if(a==34)
+	audio = loadSound("sound/D4.wav");
+    else if(a==35)
+	audio = loadSound("sound/D#4.wav");
+    else if(a==36)
+	audio = loadSound("sound/E5.wav");
+    else if(a==37)
+	audio = loadSound("sound/F5.wav");
+    else if(a==38)
+	audio = loadSound("sound/F#5.wav");
+    else if(a==39)
+	audio = loadSound("sound/G5.wav");
+    else if(a==40)
+	audio = loadSound("sound/G#5.wav");
+    else if(a==41)
+	audio = loadSound("sound/A5.wav");
+    else if(a==42)
+	audio = loadSound("sound/A#5.wav");
+    else if(a==43)
+	audio = loadSound("sound/B5.wav");
+
+*/
+}
+
