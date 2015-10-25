@@ -1,6 +1,8 @@
 var lineCounter = -1;
 var jsonData;
 var timer = 0;
+pauseFlag = false;
+loopFlag = false;
 
 var audio = new Array(45);
 
@@ -59,7 +61,7 @@ function setup() {
    var height = window.screen.availHeight;
    var width = window.screen.availWidth;
     
-    var MyCanvas = createCanvas(width, height-200);
+    var MyCanvas = createCanvas(width, height * .75);
     MyCanvas.parent('bodyDiv');
     background(255);
     noSmooth();    
@@ -72,18 +74,29 @@ function setup() {
 
 function init(){
     $("#play_unpressed").click(function(){
+	pauseFlag = false;
 	playSong();
+    });
+
+    $("#pause_unpressed").click(function(){
+	pauseFlag = true;
+    });
+    
+    $("#loop_unpressed").click(function(){
+	loopFlag = !loopFlag;
     });
 }
 
 function playSong(){
-    if (timer < jsonData.length){
-	console.log('playing: ' + timer);
+    if (timer < jsonData.length && pauseFlag == false){
 	audio[jsonData[timer]].play();
 	timer++;
 	setTimeout(playSong, 500);
-    }else{
+    }else if (timer >= jsonData.length){
 	timer = 0;
+	if (loopFlag == true){
+	    playSong();
+	}
     }
 }
 

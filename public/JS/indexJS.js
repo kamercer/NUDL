@@ -75,6 +75,7 @@ function setup() {
     mic.start();
 }
 
+var exp = 0;
 function high(){
     var d = fft.analyze();
     var a = 0;
@@ -93,11 +94,17 @@ function high(){
     if (pos < 1000 && pos > 0){
 	//change threshold here
 	console.log(pos + " : " + a);
-	if (hzFlag == false && a > 235){
-	    noteArray.push(pos);
-	    hzFlag = true;
-	}else if (a < 235){
+	if (hzFlag == false && a > 230){
+	    if (exp > 14){
+		noteArray.push(pos);
+		hzFlag = true;
+		exp = 0;
+	    }else{
+		exp++;
+	    }
+	}else if (a < 230){
 	    hzFlag = false;
+	    exp = 0;
 	}else if (noteArray[noteArray.length - 1] > (pos + 3) || noteArray[noteArray.length - 1] < (pos - 3)){
 	    noteArray.push(pos);
 	    hzFlag = true;

@@ -1,5 +1,5 @@
 body{
-    background: url('/assets/Wood-Background.jpg') no-repeat center center fixed;
+    background: url('/assets/background-no.png') no-repeat center center fixed;
     background-size: cover;
 }
 
@@ -20,7 +20,7 @@ body{
     margin: 0 auto;
     margin-top: 5%;
     text-align: center;
-    font-size: 30px;
+    font-size: 70px;
 }
 
 #transcribe{

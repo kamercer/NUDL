@@ -122,25 +122,25 @@ module.exports = {
 		noteArray.push(36);
 		break;
 	    case frequencies[i] <= 719.22265:
-		noteArray.push(37);
+		noteArray.push(26);//37
 		break;
 	    case frequencies[i] <= 761.9903:
-		noteArray.push(38);
+		noteArray.push(27);
 		break;
 	    case frequencies[i] <= 807.0015:
-		noteArray.push(39);
+		noteArray.push(28);
 		break;
 	    case frequencies[i] <= 855.3047:
-		noteArray.push(40);
+		noteArray.push(29);
 		break;
 	    case frequencies[i] <= 906.16375:
-		noteArray.push(41);
+		noteArray.push(30);
 		break;
 	    case frequencies[i] <= 960.04705:
-		noteArray.push(42);
+		noteArray.push(31);
 		break;
 	    default:
-		noteArray.push(42);
+		noteArray.push(32);
 		break;
 	    }
 	}
