@@ -1,15 +1,61 @@
 var lineCounter = -1;
+var jsonData;
+var timer = 0;
 
-var audio = new Array(50);
+var audio = new Array(45);
 
 function preload(){
-    audio[0] = loadSound("/assets/sound/E2.wav");
-    audio[1] = loadSound("/assets/sound/F2.wav"); 
+  audio[0] = loadSound("/assets/sound/E2.wav");
+  audio[1] = loadSound("/assets/sound/F2.wav"); 
+  audio[2] = loadSound("/assets/sound/F12.wav");
+  audio[3] = loadSound("/assets/sound/G2.wav");
+  audio[4] = loadSound("/assets/sound/G12.wav");
+  audio[5] = loadSound("/assets/sound/A2.wav");
+  audio[6] = loadSound("/assets/sound/A12.wav");  
+  audio[7] = loadSound("/assets/sound/B2.wav");
+  audio[8] = loadSound("/assets/sound/C3.wav");
+  audio[9] = loadSound("/assets/sound/C13.wav");
+  audio[10] = loadSound("/assets/sound/D3.wav");
+  audio[11] = loadSound("/assets/sound/D13.wav");
+  audio[12] = loadSound("/assets/sound/E3.wav");
+  audio[13] = loadSound("/assets/sound/F3.wav");
+  audio[14] = loadSound("/assets/sound/F13.wav");
+  audio[15] = loadSound("/assets/sound/G3.wav");
+  audio[16] = loadSound("/assets/sound/G13.wav");
+  audio[17] = loadSound("/assets/sound/A3.wav");
+  audio[18] = loadSound("/assets/sound/A13.wav");
+  audio[19] = loadSound("/assets/sound/B3.wav");
+  audio[20] = loadSound("/assets/sound/C4.wav");
+  audio[21] = loadSound("/assets/sound/C14.wav");
+  audio[22] = loadSound("/assets/sound/D4.wav");
+  audio[23] = loadSound("/assets/sound/D14.wav");
+  audio[24] = loadSound("/assets/sound/E4.wav");
+  audio[25] = loadSound("/assets/sound/F4.wav");
+  audio[26] = loadSound("/assets/sound/F14.wav");
+  audio[27] = loadSound("/assets/sound/G4.wav");
+  audio[28] = loadSound("/assets/sound/G14.wav");
+  audio[29] = loadSound("/assets/sound/A4.wav");
+  audio[30] = loadSound("/assets/sound/A14.wav");
+  audio[31] = loadSound("/assets/sound/B4.wav");
+  audio[32] = loadSound("/assets/sound/C5.wav");
+  audio[33] = loadSound("/assets/sound/C15.wav");
+  audio[34] = loadSound("/assets/sound/D5.wav");
+  audio[35] = loadSound("/assets/sound/D15.wav");
+  audio[36] = loadSound("/assets/sound/E5.wav");
+  audio[37] = loadSound("/assets/sound/F5.wav");
+  audio[38] = loadSound("/assets/sound/F15.wav");
+  audio[39] = loadSound("/assets/sound/G5.wav");
+  audio[40] = loadSound("/assets/sound/G15.wav");
+  audio[41] = loadSound("/assets/sound/A5.wav");
+  audio[42] = loadSound("/assets/sound/A15.wav");
+  audio[43] = loadSound("/assets/sound/B5.wav");
+}
+
+function loadData(temp){
+    jsonData = temp;
 }
 
 function setup() {
-    audio[0].play();
-    
    var height = window.screen.availHeight;
    var width = window.screen.availWidth;
     
@@ -26,8 +72,19 @@ function setup() {
 
 function init(){
     $("#play_unpressed").click(function(){
-	playNote(0);
+	playSong();
     });
+}
+
+function playSong(){
+    if (timer < jsonData.length){
+	console.log('playing: ' + timer);
+	audio[jsonData[timer]].play();
+	timer++;
+	setTimeout(playSong, 500);
+    }else{
+	timer = 0;
+    }
 }
 
 function note(a,c)
@@ -252,9 +309,9 @@ function noteLoop() {
     var b = 0; //placeholder for values
     var c = 25; //length of note itself
     
-    for(var key in MyJSONObject)
-    {
-	b = MyJSONObject[key];
+    //for(var key in MyJSONObject)
+    for(i = 0; i < jsonData.length; i++){
+	b = jsonData[i];
 	var d = note(b,a); //tells you y variable of note
 	
 	//determines sharp  or not
@@ -311,102 +368,3 @@ function graphLines(){
     line(140, a+75, wide, a+75);
     line(140, a+100, wide, a+100);
 }
-
-function playNote(a)
-{    
-    audio[a].setVolume(1);
-    audio[a].play();
-/*
-    if(a==0)
-	//audio[0] = loadSound("/assets/sound/E2.wav");
-	audio[0].play();
-    else if(a==1)
-	audio = loadSound("sound/F2.wav"); 
-    else if(a==2)
-	audio = loadSound("sound/F#2.wav");
-    else if(a==3)
-	audio = loadSound("sound/G2.wav");
-	else if(a==4)
-	    audio = loadSound("sound/G#2.wav");
-	else if(a==5)
-	    audio = loadSound("sound/A2.wav");
-	else if(a==6)
-	    audio = loadSound("sound/A#2.wav");  
-	else if(a==7)
-	    audio = loadSound("sound/B2.wav");
-	else if(a==8)
-	    audio = loadSound("sound/C2.wav");
-	else if(a==9)
-	    audio = loadSound("sound/C#2.wav");
-	else if(a==10)
-	    audio = loadSound("sound/D2.wav");
-	else if(a==11)
-	    audio = loadSound("sound/D#2.wav");
-	else if(a==12)
-	    audio = loadSound("sound/E3.wav");
-	else if(a==13)
-	    audio = loadSound("sound/F3.wav");
-	else if(a==14)
-	    audio = loadSound("sound/F#3.wav");
-	else if(a==15)
-	    audio = loadSound("sound/G3.wav");
-	else if(a==16)
-	    audio = loadSound("sound/G#3.wav");
-    else if(a==17)
-	audio = loadSound("sound/A3.wav");
-    else if(a==18)
-	audio = loadSound("sound/A#3.wav");
-    else if(a==19)
-	audio = loadSound("sound/B3.wav");
-    else if(a==20)
-	audio = loadSound("sound/C3.wav");
-    else if(a==21)
-	audio = loadSound("sound/C#3.wav");
-    else if(a==22)
-	audio = loadSound("sound/D3.wav");
-    else if(a==23)
-	audio = loadSound("sound/D#3.wav");
-    else if(a==24)
-	audio = loadSound("sound/E4.wav");
-    else if(a==25)
-	audio = loadSound("sound/F4.wav");
-    else if(a==26)
-	audio = loadSound("sound/F#4.wav");
-    else if(a==27)
-	audio = loadSound("sound/G4.wav");
-    else if(a==28)
-	audio = loadSound("sound/G#4.wav");
-    else if(a==29)
-	audio = loadSound("sound/A4.wav");
-    else if(a==30)
-	audio = loadSound("sound/A#4.wav");
-    else if(a==31)
-	audio = loadSound("sound/B4.wav");
-    else if(a==32)
-	audio = loadSound("sound/C4.wav");
-    else if(a==33)
-	audio = loadSound("sound/C#4.wav");
-    else if(a==34)
-	audio = loadSound("sound/D4.wav");
-    else if(a==35)
-	audio = loadSound("sound/D#4.wav");
-    else if(a==36)
-	audio = loadSound("sound/E5.wav");
-    else if(a==37)
-	audio = loadSound("sound/F5.wav");
-    else if(a==38)
-	audio = loadSound("sound/F#5.wav");
-    else if(a==39)
-	audio = loadSound("sound/G5.wav");
-    else if(a==40)
-	audio = loadSound("sound/G#5.wav");
-    else if(a==41)
-	audio = loadSound("sound/A5.wav");
-    else if(a==42)
-	audio = loadSound("sound/A#5.wav");
-    else if(a==43)
-	audio = loadSound("sound/B5.wav");
-
-*/
-}
-

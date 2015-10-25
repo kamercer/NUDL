@@ -91,12 +91,11 @@ function high(){
     pos = pos/16384;
 
     if (pos < 1000 && pos > 0){
-	console.log(pos + ": " + a);
 	//change threshold here
-	if (hzFlag == false && a > 245){
+	if (hzFlag == false && a > 235){
 	    noteArray.push(pos);
 	    hzFlag = true;
-	}else if (a < 245){
+	}else if (a < 235){
 	    hzFlag = false;
 	}else if (noteArray[noteArray.length - 1] > (pos + 3) || noteArray[noteArray.length - 1] < (pos - 3)){
 	    noteArray.push(pos);

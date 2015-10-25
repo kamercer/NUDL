@@ -13,10 +13,14 @@ module.exports = function(app){
     });
 
     app.post('/loadSheet', function(req, res){
-	console.log('Frequencies received: ' + req.body.json + '\n');
-
 	var noteArray = model.convertHzToNotes(req.body.json);
 
-	res.render('notes', {jsonData: ''});
+	//var data = '[';
+	//for (i = 0; i < noteArray.length-1; i++){
+	  //  data = data + noteArray[i]
+	//}
+
+	console.log(noteArray.toString());
+	res.render('notes', {jsonData: '[' + noteArray + '];'});
     });
 }
