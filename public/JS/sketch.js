@@ -1,21 +1,15 @@
+var lineCounter = -1;
+
 function setup() {
     var height = window.screen.availHeight;
     var width = window.screen.availWidth;
     
     createCanvas(width, height);
     background(255);
-    noSmooth();
-    
-    translate(140, 0);
-    
-    var a = (height/2)-25;
-    
-    wide = width - (width*.5);
-    line(0, a, width, a);
-    line(0, a+25, width, a+25);
-    line(0, a+50, width, a+50);
-    line(0, a+75, width, a+75);
-    line(0, a+100, width, a+100);
+    noSmooth();    
+
+    graphLines();
+    noteLoop();
 }
 
 function note(a,c)
@@ -24,7 +18,7 @@ function note(a,c)
     strokeWeight(1);
     var height = window.screen.availHeight;
     var width = window.screen.availWidth;
-    var b = (height/2)-25;
+    var b = 50 + (lineCounter * 325);
     if(a==0)
     {
 	line(c-20, b+125, c+20, b+125);
@@ -229,11 +223,14 @@ function note(a,c)
     }
 }
 
-function draw() {
-    var MyJSONObject = { "0":"17","1":"15","2":"13","3":"15","4":"17","5":"17","6":"17","7":"15","8":"15","9":"15","10":"17","11":"17","12":"17","13":"15","14":"13"};//,"15":"41","16":"42"};
+function noteLoop() {
+    var height = window.screen.availHeight;
+    var width = window.screen.availWidth;
+    
+    var MyJSONObject = { "0":"0","1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8","9":"9","10":"10","11":"11","12":"12","13":"13","14":"14","15":"15","16":"16","17":"17","18":"18","19":"19","20":"20","21":"21","22":"22","23":"23","24":"24","25":"25","26":"26","27":"27","28":"28","29":"29","30":"30","31":"31","32":"32","33":"33","34":"34","35":"35","36":"36","37":"37","38":"38","39":"39","40":"40","41":"41","42":"42","43":"43"};
     
     //var i = 0;
-    var a = 25; //shift
+    var a = 140 + 25; //shift to the left
     var b = 0; //placeholder for values
     var c = 25; //length of note itself
     
@@ -258,7 +255,7 @@ function draw() {
 	fill(0); //color of circle
 	ellipse(a,d,1.15*c,.75*c);//note itself
 
-	
+	//line placement of note
 	if(b<19)
 	{
 	    stroke(0);
@@ -271,6 +268,28 @@ function draw() {
 	    strokeWeight(4);
 	    line(a-14, d, a-14, d+50);
 	}
+
+	//next note
 	a=a+50;	
+	if (a > (width - 140)){
+	    graphLines();
+	    a = 140 + 25;
+	}
     }
+}
+
+function graphLines(){
+    var height = window.screen.availHeight;
+    var width = window.screen.availWidth;
+ 
+    lineCounter = lineCounter + 1;
+    var a = 50 + (lineCounter * 325);
+    stroke(0);
+    strokeWeight(1);
+    wide = width - 140;
+    line(140, a, wide, a);
+    line(140, a+25, wide, a+25);
+    line(140, a+50, wide, a+50);
+    line(140, a+75, wide, a+75);
+    line(140, a+100, wide, a+100);
 }

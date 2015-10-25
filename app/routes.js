@@ -17,6 +17,6 @@ module.exports = function(app){
 
 	var notes = model.convertHzToNotes(req.body.json);
 
-	res.render('notes', {jsonData: 'alert(' + notes + ');'});
+	res.render('notes', {jsonData: ''});
     });
 }
