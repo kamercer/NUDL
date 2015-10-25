@@ -41,7 +41,7 @@ function init(){
     });
 
     //button click to submit
-    $("#transcrible").click(function(){
+    $("#transcribe").click(function(){
 	ajaxCall();
     });
 }
@@ -92,6 +92,7 @@ function high(){
 
     if (pos < 1000 && pos > 0){
 	//change threshold here
+	console.log(pos + " : " + a);
 	if (hzFlag == false && a > 235){
 	    noteArray.push(pos);
 	    hzFlag = true;
